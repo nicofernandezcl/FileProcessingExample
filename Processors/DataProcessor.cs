@@ -21,7 +21,7 @@ internal class DataProcessor : IDataProcessor
 
                 if (_fileQueue.TryDequeue(out var file))
                 {
-                    string processedData = File.ReadAllText(file).ToUpper(); // Simulación de procesamiento
+                    string processedData = File.ReadAllText(file).ToUpper(); // Simulación de procesamiento, aca se debe hacer lo necesario
                     _dataQueue.Enqueue(processedData);
                     Console.WriteLine($"Archivo procesado y encolado para subida: {file}");
                 }

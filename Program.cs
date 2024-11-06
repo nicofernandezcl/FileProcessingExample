@@ -2,15 +2,20 @@
 using FileProcessingExample.Processors;
 using FileProcessingExample.Producers;
 using FileProcessingExample.Utilities;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 public class Program
 {
     private static void Main(string[] args)
     {
-
-        string folderPath = "Ruta/De/Tu/Carpeta";
-        string ftpUrl = "ftp://tu-servidor-ftp.com/";
+        var configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .Build();
+            
+        var folderPath = configuration["FileSettings:FolderPath"];
+        var ftpUrl = configuration["FtpSettings:FtpUrl"];
 
         var serviceProvider = new ServiceCollection()
             .AddSingleton<IFileProducer>(provider => new FileProducer(folderPath, provider.GetRequiredService<IQueueManager>().FileQueue))

@@ -43,9 +43,8 @@ internal class FtpConsumer : IFtpConsumer
             if (_queue.TryDequeue(out var fileContent))
             {
                 // Procesamiento de archivo (simulado)
-                string processedData = fileContent.ToUpper(); // Ejemplo de procesamiento
+                string processedData = fileContent.ToUpper(); // Ejemplo de procesamiento, cambiar
 
-                // Subir al FTP
                 UploadToFtp(processedData);
             }
         }
