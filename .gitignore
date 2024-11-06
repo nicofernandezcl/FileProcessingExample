@@ -1,0 +1,24 @@
+# Exclude build directories
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.nupkg
+*.snupkg
+*.nuspec
+*.psmdcp
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+*.nuget.props
+*.nuget.targets
+*.nuget.dgspec.json
+project.nuget.cache
